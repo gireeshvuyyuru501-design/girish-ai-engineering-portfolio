@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Girish Vuyyuru — Senior AI/ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,600;0,900;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0A0F;
+    --paper: #F7F6F2;
+    --mid: #6B6B7A;
+    --rule: #DDDDD8;
+    --signal: #1A56DB;
+    --signal-muted: #E8EFFE;
+    --green: #0D7A3E;
+    --mono: 'IBM Plex Mono', monospace;
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--body); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,246,242,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+  .nav-name { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-family: var(--mono); font-size: 12px; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--ink); }
+
+  .hero { padding: 130px 2rem 80px; max-width: 960px; margin: 0 auto; }
+  .hero-eyebrow { font-family: var(--mono); font-size: 12px; color: var(--mid); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--mid); }
+  .hero-name { font-family: var(--display); font-size: clamp(52px, 8vw, 96px); font-weight: 900; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+  .hero-name em { font-style: italic; font-weight: 300; color: var(--mid); }
+  .hero-tagline { font-family: var(--display); font-size: clamp(17px, 2.5vw, 24px); font-weight: 300; font-style: italic; color: var(--mid); margin: 1.5rem 0 2.5rem; max-width: 680px; line-height: 1.5; }
+  .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; border-top: 1px solid var(--rule); padding-top: 2rem; margin-top: 2rem; }
+  .stat-value { font-family: var(--display); font-size: 36px; font-weight: 900; line-height: 1; }
+  .stat-label { font-family: var(--mono); font-size: 11px; color: var(--mid); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; padding: 12px 24px; transition: background 0.15s; }
+  .btn-primary:hover { background: #333; }
+  .btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--ink); font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; padding: 12px 24px; border: 1px solid var(--ink); transition: all 0.15s; }
+  .btn-outline:hover { background: var(--ink); color: var(--paper); }
+
+  .eval-terminal { background: var(--ink); color: #E8F4FD; font-family: var(--mono); font-size: 13px; line-height: 1.8; padding: 2rem; margin: 3rem 0; }
+  .eval-terminal::before { content: '● ● ●'; display: block; color: #555; font-size: 10px; letter-spacing: 0.3em; margin-bottom: 1.5rem; }
+  .t-comment { color: #6B7280; }
+  .t-key { color: #93C5FD; }
+  .t-val-good { color: #6EE7B7; }
+  .t-val-warn { color: #FCD34D; }
+  .t-val-num { color: #C4B5FD; }
+  .t-metric { color: #FCA5A5; }
+
+  .cert-strip { background: var(--ink); color: var(--paper); padding: 1.5rem 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .cert-strip-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #9CA3AF; white-space: nowrap; }
+  .cert-list { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .cert-item { font-family: var(--mono); font-size: 11px; color: #E5E7EB; padding: 3px 10px; border: 1px solid #374151; }
+
+  section { max-width: 960px; margin: 0 auto; padding: 80px 2rem; border-top: 1px solid var(--rule); }
+  .section-label { font-family: var(--mono); font-size: 11px; color: var(--mid); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  .status-badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; color: var(--green); background: #ECFDF5; border: 1px solid #6EE7B7; padding: 4px 12px; margin-bottom: 1.5rem; }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; }
+  .timeline-item { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--rule); }
+  .timeline-item:first-child { padding-top: 0; }
+  .tl-company { font-family: var(--display); font-size: 20px; font-weight: 600; line-height: 1.2; margin-bottom: 4px; }
+  .tl-period { font-family: var(--mono); font-size: 11px; color: var(--mid); letter-spacing: 0.04em; margin-bottom: 4px; }
+  .tl-location { font-family: var(--mono); font-size: 11px; color: var(--mid); }
+  .tl-role { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--signal); text-transform: uppercase; margin-bottom: 0.75rem; }
+  .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+  .tl-bullets li { font-size: 14px; color: var(--ink); line-height: 1.6; padding-left: 1rem; position: relative; }
+  .tl-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--mid); }
+  .tl-env { font-family: var(--mono); font-size: 11px; color: var(--mid); line-height: 1.7; border-top: 1px solid var(--rule); padding-top: 0.75rem; margin-top: 0.75rem; }
+  .tl-env strong { color: var(--ink); }
+  .tl-highlights { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+  .tl-highlight { font-family: var(--mono); font-size: 10px; background: var(--signal-muted); color: var(--signal); padding: 3px 8px; letter-spacing: 0.03em; }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .project-card { background: var(--paper); padding: 2rem; display: flex; flex-direction: column; transition: background 0.15s; text-decoration: none; color: inherit; }
+  .project-card:hover { background: #F0EFE9; }
+  .project-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--signal); background: var(--signal-muted); padding: 3px 8px; display: inline-block; margin-bottom: 1rem; width: fit-content; }
+  .project-title { font-family: var(--display); font-size: 20px; font-weight: 600; line-height: 1.2; margin-bottom: 0.75rem; }
+  .project-desc { font-size: 14px; color: var(--mid); line-height: 1.6; margin-bottom: 1.5rem; flex: 1; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+  .stack-chip { font-family: var(--mono); font-size: 10px; color: var(--mid); border: 1px solid var(--rule); padding: 2px 8px; }
+  .project-metric { font-family: var(--mono); font-size: 12px; color: var(--green); border-top: 1px solid var(--rule); padding-top: 1rem; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .skill-group { background: var(--paper); padding: 1.5rem; }
+  .skill-group-title { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .skill-list li { font-size: 13px; color: var(--ink); line-height: 1.5; }
+
+  /* EDUCATION */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .edu-card { background: var(--paper); padding: 2rem; }
+  .edu-degree { font-family: var(--display); font-size: 18px; font-weight: 600; margin-bottom: 0.5rem; }
+  .edu-school { font-family: var(--mono); font-size: 13px; color: var(--mid); margin-bottom: 0.25rem; }
+  .edu-detail { font-family: var(--mono); font-size: 12px; color: var(--signal); }
+
+  /* CERTS */
+  .cert-grid { display: flex; flex-direction: column; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .cert-row { background: var(--paper); padding: 1.25rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; }
+  .cert-source { font-family: var(--mono); font-size: 11px; color: var(--mid); letter-spacing: 0.06em; text-transform: uppercase; min-width: 120px; padding-top: 2px; }
+  .cert-items { font-size: 13px; color: var(--ink); line-height: 1.7; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+  .contact-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); margin-bottom: 4px; }
+  .contact-value { font-family: var(--mono); font-size: 14px; color: var(--ink); text-decoration: none; display: block; }
+  .contact-value:hover { color: var(--signal); }
+
+  footer { border-top: 1px solid var(--rule); padding: 2rem; text-align: center; font-family: var(--mono); font-size: 11px; color: var(--mid); letter-spacing: 0.04em; }
+
+  @media (max-width: 640px) {
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .contact-grid, .edu-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#">GIRISH VUYYURU</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="status-badge"><span class="status-dot"></span>Open to opportunities · H-1B approved through August 2029</div>
+  <div class="hero-eyebrow">Senior AI/ML Engineer · Houston, TX</div>
+  <h1 class="hero-name">Girish<br><em>Vuyyuru</em></h1>
+  <p class="hero-tagline">8+ years engineering production AI systems at Mastercard, Veterans Affairs, Radixweb and Gridlogic — specialising in Generative AI, Agentic Systems, RAG, GraphRAG, RLHF, MCP, and LLM Observability.</p>
+
+  <div class="eval-terminal">
+    <span class="t-comment"># production eval harness — open source, wired into CI as release gate</span><br>
+    <span class="t-key">model</span>: <span class="t-val-num">"gpt-4o"</span> &nbsp;·&nbsp; <span class="t-key">retriever</span>: <span class="t-val-num">"hybrid-pgvector"</span><br>
+    <br>
+    <span class="t-comment"># baseline evaluation</span><br>
+    <span class="t-metric">focus</span>: <span class="t-val-warn">retrieval quality</span> &nbsp;·&nbsp; <span class="t-metric">checks</span>: <span class="t-val-warn">faithfulness · relevance · groundedness</span><br>
+    <br>
+    <span class="t-comment"># after hybrid search + reranking + RAGAS gate</span><br>
+    <span class="t-metric">result</span>: <span class="t-val-good">grounded responses improved</span> &nbsp;·&nbsp; <span class="t-metric">gate_status</span>: <span class="t-val-good">PASS</span><br>
+    <br>
+    <span class="t-comment"># lesson: most LLM failures are retrieval failures.</span><br>
+    <span class="t-comment"># visible only when you score every step, not just the final output.</span>
+  </div>
+
+  <div class="hero-stats">
+    <div><div class="stat-value">8+</div><div class="stat-label">Years Experience</div></div>
+    <div><div class="stat-value">4</div><div class="stat-label">Enterprise Employers</div></div>
+    <div><div class="stat-value">16</div><div class="stat-label">Anthropic Certifications</div></div>
+    <div><div class="stat-value">4</div><div class="stat-label">Core AI Projects</div></div>
+    <div><div class="stat-value">3</div><div class="stat-label">Cloud Platforms</div></div>
+  </div>
+
+  <div class="hero-cta">
+    <a class="btn-primary" href="https://github.com/gireeshvuyyuru501-design" target="_blank">↗ GitHub</a>
+    <a class="btn-outline" href="https://linkedin.com/in/girish-genai-engineer" target="_blank">LinkedIn</a>
+    <a class="btn-outline" href="mailto:girishsap45@gmail.com">girishsap45@gmail.com</a>
+    <a class="btn-outline" href="tel:+13464348296">(346) 434-8296</a>
+  </div>
+</div>
+
+<!-- CERT STRIP -->
+<div class="cert-strip">
+  <span class="cert-strip-label">Anthropic · 16 Certs</span>
+  <div class="cert-list">
+    <span class="cert-item">MCP Introduction</span>
+    <span class="cert-item">MCP Advanced Topics</span>
+    <span class="cert-item">Claude Code</span>
+    <span class="cert-item">Agent Skills & Subagents</span>
+    <span class="cert-item">Building Effective Agents</span>
+    <span class="cert-item">RAG & Retrieval Systems</span>
+    <span class="cert-item">LLM Evaluation</span>
+    <span class="cert-item">AI Safety Fundamentals</span>
+    <span class="cert-item">Responsible AI</span>
+    <span class="cert-item">+7 more</span>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div>
+        <div class="tl-company">Mastercard</div>
+        <div class="tl-period">Dec 2024 — Present</div>
+        <div class="tl-location">Purchase, NY</div>
+      </div>
+      <div>
+        <div class="tl-role">AI/ML Engineer</div>
+        <ul class="tl-bullets">
+          <li>Architected cloud-native AI platforms on Microsoft Azure using Cloud-Native Architecture principles to build resilient, scalable, and highly available enterprise solutions.</li>
+          <li>Designed and implemented RAG architectures using Azure AI Search, Vector Indexing, and LLMs to build enterprise knowledge assistants for financial documentation and internal knowledge repositories.</li>
+          <li>Architected an enterprise Hybrid GraphRAG platform integrating PySpark ETL, Neo4j knowledge graphs, LangGraph orchestration, vector retrieval, FastAPI, and Streamlit for grounded AI responses.</li>
+          <li>Built Apache Spark and PySpark ETL pipelines to model Employee–Skill–Project relationships in Neo4j using Cypher queries for graph-based retrieval.</li>
+          <li>Designed and implemented end-to-end RLHF pipelines including reward modeling, PPO training loops, DPO, GRPO, human feedback datasets, and RLAIF pipelines.</li>
+          <li>Engineered production-grade AI Guardrails including Prompt Injection Detection, PII Redaction, Output Safety Filtering, Jailbreak Detection, and Audit Logging for secure and compliant AI deployments.</li>
+        </ul>
+        <div class="tl-env"><strong>Environment:</strong> Python · Azure Machine Learning · Azure OpenAI · Azure AI Search · Azure Databricks · Azure Synapse Analytics · LangChain · LangGraph · LangSmith · RAG Pipelines · Pinecone · ChromaDB · pgvector · FAISS · Hybrid Search · MCP · Guardrails · LLM Observability · MLflow · FastAPI · Docker · Kubernetes · CI/CD · PySpark · Apache Spark · Power BI · Responsible AI</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div>
+        <div class="tl-company">Veterans Affairs</div>
+        <div class="tl-period">May 2022 — Nov 2024</div>
+        <div class="tl-location">Washington, D.C.</div>
+      </div>
+      <div>
+        <div class="tl-role">ML Engineer</div>
+        <ul class="tl-bullets">
+          <li>Developed scalable ML solutions using Python for healthcare analytics, delivering predictive models that supported operational decision-making and workflow automation.</li>
+          <li>Designed cloud-native ML pipelines on AWS using AWS Glue, ETL frameworks to process and catalog enterprise healthcare datasets at scale.</li>
+          <li>Leveraged PySpark for large-scale distributed data processing, enabling efficient transformation and analysis of high-volume structured and unstructured clinical data.</li>
+          <li>Built enterprise LLM applications using OpenAI APIs, Prompt Engineering, and RAG to deliver intelligent Conversational AI solutions for clinical workflows.</li>
+          <li>Developed NLP solutions using Hugging Face Transformers, BERT, and SBERT for healthcare document analysis, text classification, named entity recognition, and semantic understanding.</li>
+          <li>Built, trained, and optimised ML models on Amazon SageMaker, managing complete model training, evaluation, and hyperparameter optimisation lifecycle.</li>
+        </ul>
+        <div class="tl-env"><strong>Environment:</strong> Python · AWS · Amazon SageMaker · AWS Glue · Amazon EC2 · Amazon S3 · AWS Lambda · Amazon ECS · Amazon EKS · Apache Airflow · LangChain · RAG Pipelines · OpenAI APIs · LLMs · Hugging Face Transformers · BERT · SBERT · NLP · Scikit-learn · TensorFlow · XGBoost · MLflow · FastAPI · Docker · Jenkins · CI/CD · PySpark · Feature Engineering</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div>
+        <div class="tl-company">Radixweb</div>
+        <div class="tl-period">Jan 2020 — Apr 2022</div>
+        <div class="tl-location">India</div>
+      </div>
+      <div>
+        <div class="tl-role">Data Scientist</div>
+        <ul class="tl-bullets">
+          <li>Designed and developed predictive ML models using Scikit-learn and XGBoost for classification, regression, and forecasting use cases, improving analytical accuracy and enabling data-driven business decisions.</li>
+          <li>Performed comprehensive Exploratory Data Analysis using Pandas and NumPy to identify trends, correlations, anomalies, and actionable insights from large-scale datasets.</li>
+          <li>Engineered high-quality features through Feature Engineering including Data Normalisation, Categorical Encoding, Feature Selection, and Outlier Treatment.</li>
+          <li>Designed and managed cloud-based ML solutions on AWS using Amazon S3, Amazon EC2, and Amazon SageMaker for scalable model development, training, and deployment.</li>
+          <li>Implemented MLflow for Experiment Tracking, Model Versioning, and reproducible ML workflows ensuring effective collaboration and governance.</li>
+        </ul>
+        <div class="tl-env"><strong>Environment:</strong> Python · Scikit-learn · XGBoost · TensorFlow · PyTorch · PySpark · Apache Spark · Pandas · NumPy · Flask · FastAPI · Amazon SageMaker · Amazon S3 · Amazon EC2 · MLflow · Docker · Jenkins · CI/CD · Feature Engineering · LangChain · OpenAI APIs · Hugging Face Transformers · BERT · NLP</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div>
+        <div class="tl-company">Gridlogic</div>
+        <div class="tl-period">Feb 2018 — Dec 2019</div>
+        <div class="tl-location">India</div>
+      </div>
+      <div>
+        <div class="tl-role">Software Developer</div>
+        <ul class="tl-bullets">
+          <li>Developed and optimised database solutions using PostgreSQL, SQL, and Stored Procedures, implementing Query Optimisation and Indexing techniques to improve application response times.</li>
+          <li>Designed and developed backend applications using Python and Django, building secure RESTful APIs and integration services for enterprise workflows.</li>
+          <li>Designed and implemented scalable ETL pipelines using PySpark, Apache Spark, Pandas, and NumPy for efficient Data Processing and Data Transformation.</li>
+          <li>Automated Batch Processing workflows using Apache Airflow, creating reliable scheduling, monitoring, and orchestration for enterprise data pipelines.</li>
+          <li>Containerised applications using Docker, ensuring consistent development, testing, and production environments while improving deployment efficiency.</li>
+        </ul>
+        <div class="tl-env"><strong>Environment:</strong> Python · Django · Flask · PostgreSQL · Microsoft SQL Server · MongoDB · PySpark · Apache Spark · Pandas · NumPy · Amazon EC2 · Amazon S3 · Amazon RDS · Jenkins · Git · CI/CD · Docker · PyTest · Apache Airflow · RESTful APIs · ETL · SQL</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Open-Source Projects</div>
+  <div class="projects-grid">
+
+    <a class="project-card" href="https://github.com/gireeshvuyyuru501-design" target="_blank">
+      <span class="project-tag">GraphRAG</span>
+      <div class="project-title">Hybrid GraphRAG Platform</div>
+      <p class="project-desc">Enterprise Hybrid GraphRAG combining PySpark ETL, Neo4j knowledge graphs, LangGraph orchestration, and vector similarity search. Models Employee–Skill–Project relationships in Neo4j using Cypher for graph-based grounded retrieval.</p>
+      <div class="project-stack">
+        <span class="stack-chip">PySpark</span><span class="stack-chip">Neo4j</span><span class="stack-chip">Cypher</span><span class="stack-chip">LangGraph</span><span class="stack-chip">ChromaDB</span><span class="stack-chip">FastAPI</span><span class="stack-chip">Streamlit</span><span class="stack-chip">Pydantic</span>
+      </div>
+      <div class="project-metric">↗ Hybrid graph + semantic retrieval · Grounded, source-aware LLM responses</div>
+    </a>
+
+    <a class="project-card" href="https://github.com/gireeshvuyyuru501-design" target="_blank">
+      <span class="project-tag">Agentic AI</span>
+      <div class="project-title">Enterprise MCP Tool Server</div>
+      <p class="project-desc">Production FastMCP server exposing 9 schema-explicit tools consumed by Claude Desktop, GitHub Copilot, and internal agents. OAuth 2.0 authorisation at retrieval, TLS transport, append-only audit logging.</p>
+      <div class="project-stack">
+        <span class="stack-chip">FastMCP</span><span class="stack-chip">Model Context Protocol</span><span class="stack-chip">Python</span><span class="stack-chip">Claude</span><span class="stack-chip">OAuth 2.0</span><span class="stack-chip">Pydantic</span>
+      </div>
+      <div class="project-metric">↗ Schema-explicit tools · MCP integration · production-oriented design</div>
+    </a>
+
+    <a class="project-card" href="https://github.com/gireeshvuyyuru501-design" target="_blank">
+      <span class="project-tag">Evaluation</span>
+      <div class="project-title">LLM Evaluation Harness</div>
+      <p class="project-desc">RAGAS-based evaluation framework wired into CI as release gate. Golden datasets, trajectory-level faithfulness scoring, hallucination detection, and adversarial testing. Measures false alarms as strictly as attack recall.</p>
+      <div class="project-stack">
+        <span class="stack-chip">RAGAS</span><span class="stack-chip">Python</span><span class="stack-chip">GitHub Actions</span><span class="stack-chip">LangSmith</span><span class="stack-chip">Golden Datasets</span>
+      </div>
+      <div class="project-metric">↗ RAGAS evaluation · Golden datasets · Hallucination checks</div>
+    </a>
+
+    <a class="project-card" href="https://github.com/gireeshvuyyuru501-design" target="_blank">
+      <span class="project-tag">Observability</span>
+      <div class="project-title">LLM Observability Platform</div>
+      <p class="project-desc">Step-level distributed tracing over prompts, tool calls, latency, and cost across multi-agent chains. Built because knowing which step in a chain failed matters more than knowing the final output was wrong.</p>
+      <div class="project-stack">
+        <span class="stack-chip">LangSmith</span><span class="stack-chip">MLflow</span><span class="stack-chip">Prometheus</span><span class="stack-chip">FastAPI</span><span class="stack-chip">Docker</span>
+      </div>
+      <div class="project-metric">↗ Step-level tracing · Latency and cost observability</div>
+    </a>
+
+    <a class="project-card" href="https://github.com/gireeshvuyyuru501-design" target="_blank">
+      <span class="project-tag">AI Safety</span>
+      <div class="project-title">GenAI Guardrails Platform</div>
+      <p class="project-desc">Prompt Injection Detection, Jailbreak Resistance, PII Redaction, Output Safety Filtering, and adversarial evaluation suite. A control that blocks everything gets disabled — so false alarms are measured as strictly as attacks.</p>
+      <div class="project-stack">
+        <span class="stack-chip">Python</span><span class="stack-chip">FastAPI</span><span class="stack-chip">Pydantic</span><span class="stack-chip">Playwright</span><span class="stack-chip">PyTest</span>
+      </div>
+      <div class="project-metric">↗ Prompt injection · PII redaction · Audit logging · AI Governance</div>
+    </a>
+
+    <a class="project-card" href="https://github.com/gireeshvuyyuru501-design/skyops-qatar-airways-ai" target="_blank">
+      <span class="project-tag">Agentic AI</span>
+      <div class="project-title">SkyOps — Airline Intelligence Agent</div>
+      <p class="project-desc">Multi-agent airline operations platform for Qatar Airways. Flight disruption intelligence, policy-grounded passenger assistance, and human-in-the-loop checkpoints on all booking decisions. Built with LangGraph and CrewAI.</p>
+      <div class="project-stack">
+        <span class="stack-chip">LangGraph</span><span class="stack-chip">CrewAI</span><span class="stack-chip">RAG</span><span class="stack-chip">FastAPI</span><span class="stack-chip">AutoGen</span>
+      </div>
+      <div class="project-metric">↗ Human-in-the-loop · No autonomous rebooking · Policy-grounded</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Technical Skills</div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">Languages & Frameworks</div>
+      <ul class="skill-list">
+        <li>Python · SQL · JavaScript · TypeScript</li>
+        <li>PyTorch · TensorFlow · Keras</li>
+        <li>Scikit-learn · XGBoost · YOLO · OpenCV</li>
+        <li>Pandas · NumPy · Stable Baselines3</li>
+        <li>PPO · DQN · Reinforcement Learning</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">LLMs & GenAI</div>
+      <ul class="skill-list">
+        <li>GPT-4 · GPT-3.5 · Claude (Anthropic)</li>
+        <li>Mistral · LLaMA · Gemini · Ollama</li>
+        <li>Azure OpenAI · OpenAI APIs</li>
+        <li>Hugging Face · BERT · SBERT</li>
+        <li>LoRA · PEFT · QLoRA · SFT · RLHF · DPO · GRPO · RLAIF</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Agentic AI & MCP</div>
+      <ul class="skill-list">
+        <li>LangChain · LangGraph · LangSmith</li>
+        <li>Model Context Protocol (MCP) · FastMCP</li>
+        <li>CrewAI · AutoGen · Autonomous Agents</li>
+        <li>Multi-Agent Orchestration</li>
+        <li>Tool Calling · Function Calling · LlamaIndex</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">RAG & Vector DBs</div>
+      <ul class="skill-list">
+        <li>RAG · GraphRAG · Knowledge Graphs</li>
+        <li>Neo4j · Cypher · Graph-based Retrieval</li>
+        <li>Pinecone · ChromaDB · Milvus · FAISS</li>
+        <li>pgvector · Weaviate · Qdrant</li>
+        <li>Hybrid Search · Reranking · Contextual Compression</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Evaluation & Safety</div>
+      <ul class="skill-list">
+        <li>RAGAS · Evaluation Harnesses · LangSmith</li>
+        <li>Golden Datasets · Faithfulness Scoring</li>
+        <li>Hallucination Detection · Adversarial Testing</li>
+        <li>LLM Observability · Model Drift Detection</li>
+        <li>AI Guardrails · Prompt Injection · PII · Audit Logging</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Cloud — AWS</div>
+      <ul class="skill-list">
+        <li>Amazon SageMaker · AWS Bedrock</li>
+        <li>AWS Glue · Amazon EC2 · Amazon S3</li>
+        <li>AWS Lambda · Amazon API Gateway</li>
+        <li>Amazon ECS · Amazon EKS · AWS IAM</li>
+        <li>AWS CloudWatch · AWS Step Functions</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Cloud — Azure & GCP</div>
+      <ul class="skill-list">
+        <li>Azure Machine Learning · Azure OpenAI</li>
+        <li>Azure AI Search · Azure Databricks</li>
+        <li>Azure Synapse Analytics · AKS · ADLS Gen2</li>
+        <li>GCP Vertex AI · BigQuery · Google Cloud Storage</li>
+        <li>Azure DevOps · Azure Monitor · Azure AD</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">MLOps & Infrastructure</div>
+      <ul class="skill-list">
+        <li>MLflow · GitHub Actions · CI/CD · Jenkins</li>
+        <li>Docker · Kubernetes · Terraform</li>
+        <li>FastAPI · Django · Flask · Streamlit · Pydantic</li>
+        <li>PySpark · Apache Spark · Apache Airflow</li>
+        <li>PostgreSQL · MongoDB · Microsoft SQL Server</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Education</div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Master of Science</div>
+      <div class="edu-school">Computer Science · Texas A&M University-Kingsville</div>
+      <div class="edu-detail">GPA: 4.0 / 4.0</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Technology</div>
+      <div class="edu-school">Computer Science & Engineering · Vignan's University</div>
+      <div class="edu-detail">Guntur, Andhra Pradesh, India</div>
+    </div>
+  </div>
+
+  <br>
+  <div class="section-label" style="margin-bottom:1.5rem;">Certifications</div>
+  <div class="cert-grid">
+    <div class="cert-row">
+      <span class="cert-source">Anthropic (16)</span>
+      <span class="cert-items">MCP Introduction · MCP Advanced Topics · Claude Code · Agent Skills & Subagents · Building Effective Agents · Prompt Engineering · RAG & Retrieval Systems · LLM Evaluation · AI Safety Fundamentals · Responsible AI · Claude API Fundamentals · Tool Use & Function Calling · Constitutional AI · Multi-Agent Systems · LangChain Integration · Production AI Deployment</span>
+    </div>
+    <div class="cert-row">
+      <span class="cert-source">LinkedIn Learning</span>
+      <span class="cert-items">Generative AI with LLMs · Building AI Applications with LangChain · MLOps Fundamentals · Advanced Python for Data Science · Machine Learning Engineering for Production · Deep Learning Specialization · Agentic AI Development · RAG Pipeline Design</span>
+    </div>
+    <div class="cert-row">
+      <span class="cert-source">Skilljar</span>
+      <span class="cert-items">LangGraph Fundamentals · LangChain for LLM Application Development · Vector Database Fundamentals · Prompt Engineering for Developers · AI Agent Design Patterns · LLM Fine-Tuning Fundamentals</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <p style="font-family:var(--display);font-size:26px;font-weight:300;font-style:italic;color:var(--mid);max-width:520px;line-height:1.4;margin-bottom:2rem;">Open to senior AI/ML engineering roles. H-1B approved through August 14, 2029. Available immediately.</p>
+  <div class="contact-grid">
+    <div><div class="contact-label">Email</div><a class="contact-value" href="mailto:girishsap45@gmail.com">girishsap45@gmail.com</a></div>
+    <div><div class="contact-label">Phone</div><a class="contact-value" href="tel:+13464348296">(346) 434-8296</a></div>
+    <div><div class="contact-label">LinkedIn</div><a class="contact-value" href="https://linkedin.com/in/girish-genai-engineer" target="_blank">linkedin.com/in/girish-genai-engineer</a></div>
+    <div><div class="contact-label">GitHub</div><a class="contact-value" href="https://github.com/gireeshvuyyuru501-design" target="_blank">github.com/gireeshvuyyuru501-design</a></div>
+    <div><div class="contact-label">Portfolio</div><a class="contact-value" href="https://gireeshvuyyuru501-design.github.io/Launch-AI-engineering-portfolio" target="_blank">gireeshvuyyuru501-design.github.io</a></div>
+    <div><div class="contact-label">Location</div><span class="contact-value">Houston, TX · Open to remote & relocation</span></div>
+  </div>
+</section>
+
+<footer>GIRISH VUYYURU · SENIOR AI/ML ENGINEER — GENERATIVE AI & AGENTIC SYSTEMS · HOUSTON TX · 2026</footer>
+
+</body>
+</html>
