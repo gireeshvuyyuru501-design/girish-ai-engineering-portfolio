@@ -2,72 +2,327 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Girish Vuyyuru | AI/ML & Agentic AI Engineer</title>
-<meta name="description" content="Girish Vuyyuru — AI/ML Engineer specializing in Generative AI, Agentic AI, LLMs, RAG, LangGraph, LangChain, MCP, FastAPI and production AI systems.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Girish Vuyyuru | AI/ML and GenAI Engineer</title>
+<meta name="description" content="AI/ML and GenAI engineer in Houston, Texas. RAG, agent workflows and MCP servers, measured with evals before they ship.">
+<meta name="theme-color" content="#06101d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#06101d;--panel:#0b1b2e;--text:#edf5ff;--muted:#a7b7ca;--a:#49c6f2;--b:#8b5cf6;--line:#1c3854}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(180deg,#06101d,#08182a 55%,#07111f);color:var(--text)}
-a{text-decoration:none;color:inherit}.wrap{max-width:1140px;margin:auto;padding:0 24px}
-nav{position:sticky;top:0;background:#06101dee;border-bottom:1px solid var(--line);backdrop-filter:blur(12px);z-index:20}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}.brand{font-weight:800;letter-spacing:.04em}.links{display:flex;gap:20px;color:var(--muted);font-size:14px}
-.hero{padding:88px 0 58px}.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--a);text-transform:uppercase}
-h1{font-size:clamp(46px,7vw,80px);line-height:.98;margin:14px 0 18px}.gradient{background:linear-gradient(90deg,var(--a),#c3a7ff);-webkit-background-clip:text;color:transparent}
-.lead{max-width:860px;font-size:20px;line-height:1.62;color:var(--muted)}.lead b{color:var(--text)}
-.cta{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}.btn{padding:12px 17px;border-radius:10px;border:1px solid var(--line);background:var(--panel);font-weight:700}.primary{background:linear-gradient(90deg,#137ca1,#6948c5);border:0}
-.stats,.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,1fr);margin-top:42px}.grid{grid-template-columns:repeat(2,1fr)}
-.card{background:#0b1b2ecc;border:1px solid var(--line);border-radius:17px;padding:22px}.stat b{font-size:25px;display:block}.stat span,.card p,.card li{color:var(--muted);line-height:1.6}
-section{padding:54px 0}h2{font-size:32px;margin:0 0 24px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{font-size:12px;border:1px solid #294c6c;background:#10243a;padding:7px 10px;border-radius:999px}
-.role{display:grid;grid-template-columns:220px 1fr;gap:24px;margin-bottom:15px}.when{color:var(--a);font-weight:800}.role h3{margin:7px 0}.role ul{margin-top:0}.footer{padding:42px 0 56px;border-top:1px solid var(--line);color:var(--muted)}
-@media(max-width:760px){.links{display:none}.stats,.grid{grid-template-columns:1fr 1fr}.role{grid-template-columns:1fr}}@media(max-width:520px){.stats,.grid{grid-template-columns:1fr}}
+:root {
+  --bg: #06101d;
+  --panel: #0b1b2e;
+  --text: #edf5ff;
+  --muted: #a7b7ca;
+  --a: #49c6f2;
+  --b: #8b5cf6;
+  --line: #1c3854;
+  --track: #12293f;
+  --before: #5d7590;
+  --font: Inter, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  background-color: var(--bg);
+  background-image: linear-gradient(#06101d, #08182a 55%, #07111f);
+}
+a { color: var(--a); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--a); outline-offset: 3px; border-radius: 6px; }
+[id] { scroll-margin-top: 16px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* header */
+.bar { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.bar .who { font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 1rem; }
+.bar nav { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 0.95rem; }
+.bar nav a { color: var(--muted); text-decoration: none; }
+.bar nav a:hover { color: var(--text); }
+
+/* hero */
+.hero { padding: 72px 0 48px; }
+.eyebrow { margin: 0 0 14px; color: var(--a); font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; font-size: 0.9rem; }
+.hero h1 { margin: 0 0 18px; font-size: clamp(2.7rem, 8.5vw, 4.9rem); font-weight: 800; line-height: 1.04; letter-spacing: -0.03em; }
+.grad { background: linear-gradient(90deg, var(--a), var(--b)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tagline { margin: 0 0 14px; font-size: clamp(1.3rem, 3.2vw, 1.8rem); font-weight: 600; line-height: 1.3; max-width: 30ch; }
+.lede { margin: 0 0 28px; color: var(--muted); font-size: 1.15rem; max-width: 60ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; }
+.btn { display: inline-block; padding: 12px 20px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font-weight: 700; font-size: 1rem; line-height: 1.2; text-decoration: none; }
+.btn:hover { border-color: var(--a); }
+.btn.main { border-color: transparent; background: linear-gradient(135deg, #1f87b8, #6a4cc9); color: #fff; }
+.btn.main:hover { filter: brightness(1.1); }
+
+/* results panel */
+.report { margin-top: 48px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 12px 28px 24px; }
+.report h2 { margin: 18px 0 4px; font-size: 1.15rem; font-weight: 700; }
+.report .note { margin: 0 0 8px; color: var(--muted); font-size: 0.95rem; }
+.row { display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr); gap: 10px 32px; padding: 18px 0; border-top: 1px solid var(--line); align-items: center; }
+.row:first-of-type { border-top: 0; }
+.metric { font-weight: 600; line-height: 1.3; }
+.metric small { display: block; margin-top: 3px; color: var(--muted); font-weight: 400; font-size: 0.88rem; }
+.pair { display: grid; gap: 9px; }
+.line { display: grid; grid-template-columns: 4rem minmax(0, 1fr) 3.4rem; align-items: center; gap: 12px; font-size: 0.92rem; }
+.line .label { color: var(--muted); }
+.line .val { font-weight: 800; font-variant-numeric: tabular-nums; text-align: right; }
+.track { height: 12px; border-radius: 6px; background: var(--track); overflow: hidden; }
+.fill { height: 100%; width: var(--w); border-radius: 6px; background: var(--before); transform-origin: left center; animation: grow 900ms cubic-bezier(.2,.7,.2,1) both; }
+.fill.after { background: linear-gradient(90deg, var(--a), var(--b)); animation-delay: 350ms; }
+@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.report .foot { margin: 14px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
+
+/* sections */
+.block { padding: 56px 0; border-top: 1px solid var(--line); }
+.block h2 { margin: 0 0 24px; font-size: clamp(1.6rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -0.02em; }
+.copy { margin: 0 0 14px; max-width: 64ch; }
+.copy.fine { margin-top: 24px; color: var(--muted); font-size: 0.95rem; }
+.copy.more { margin-top: 24px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+.card h3 { margin: 0 0 8px; font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
+.card p { margin: 0 0 12px; color: var(--muted); }
+.card p:last-child { margin-bottom: 0; }
+.entry { display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr); gap: 8px 32px; padding: 24px 0; border-top: 1px solid var(--line); }
+.entry:first-of-type { border-top: 0; padding-top: 0; }
+.entry h3 { margin: 0; font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
+.entry .where { margin-top: 4px; color: var(--muted); font-size: 0.92rem; }
+.entry p { margin: 0 0 10px; max-width: 64ch; }
+.entry p:last-child { margin-bottom: 0; }
+.details { margin: 32px 0 0; padding: 0; display: grid; gap: 0; max-width: 640px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; }
+.details > div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 4px 16px; padding: 14px 22px; border-top: 1px solid var(--line); }
+.details > div:first-child { border-top: 0; }
+.details dt { color: var(--muted); }
+.details dd { margin: 0; overflow-wrap: anywhere; }
+footer { padding: 28px 0 56px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.92rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+@media (max-width: 720px) {
+  body { font-size: 1rem; }
+  .hero { padding-top: 44px; }
+  .report { padding: 4px 18px 18px; }
+  .row, .entry { grid-template-columns: minmax(0, 1fr); }
+  .block { padding: 44px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fill, .fill.after { animation: none; }
+}
 </style>
 </head>
 <body>
-<nav><div class="wrap"><div class="brand">GV / AI ENGINEERING</div><div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></div></nav>
+<div class="wrap">
 
-<header class="hero"><div class="wrap">
-<div class="eyebrow">AI/ML • GENERATIVE AI • AGENTIC AI • LLM ENGINEERING</div>
-<h1>Girish <span class="gradient">Vuyyuru</span></h1>
-<p class="lead">AI/ML Engineer with <b>6+ years of professional experience</b> building production-oriented Generative AI, Agentic AI, RAG/GraphRAG, MCP, LLM and machine-learning systems.</p>
-<div class="cta">
-<a class="btn primary" href="Girish_Vuyyuru_AI_ML_Resume.pdf" target="_blank">View Resume</a>
-<a class="btn" href="https://www.linkedin.com/in/girish-genai-engineer" target="_blank">LinkedIn</a>
-<a class="btn" href="https://github.com/gireeshvuyyuru501-design" target="_blank">GitHub</a>
-<a class="btn" href="mailto:girishsap45@gmail.com">Contact</a>
+  <header class="bar">
+    <span class="who">GV / AI Engineering</span>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="top">
+      <p class="eyebrow">AI/ML &bull; Generative AI &bull; Agentic AI &bull; LLM Engineering</p>
+      <h1 id="top">Girish <span class="grad">Vuyyuru</span></h1>
+      <p class="tagline">I build AI systems that are measured before they ship.</p>
+      <p class="lede">AI/ML and GenAI engineer in Houston, Texas. I build RAG assistants, agent workflows and MCP servers for a federal agency and a credit union, and I measure the RAG systems with RAGAS.</p>
+      <p class="actions">
+        <a class="btn main" href="Girish_Vuyyuru_AI_ML_Resume.pdf">View resume</a>
+        <a class="btn" href="https://www.linkedin.com/in/girish-genai-engineer">LinkedIn</a>
+        <a class="btn" href="https://github.com/gireeshvuyyuru501-design">GitHub</a>
+        <a class="btn" href="#contact">Contact</a>
+      </p>
+
+      <div class="report" role="group" aria-labelledby="rep">
+        <h2 id="rep">Results from my evaluation runs</h2>
+        <p class="note">Measured with RAGAS. Bars show each value as a share of its scale.</p>
+
+        <div class="row">
+          <div class="metric">RAG answer faithfulness<small>RAGAS score out of 1.0, U.S. Department of Veterans Affairs</small></div>
+          <div class="pair">
+            <div class="line"><span class="label">Before</span><div class="track" aria-hidden="true"><div class="fill" style="--w:57%"></div></div><span class="val">0.57</span></div>
+            <div class="line"><span class="label">After</span><div class="track" aria-hidden="true"><div class="fill after" style="--w:91%"></div></div><span class="val">0.91</span></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="metric">Answer accuracy<small>100-question RAGAS set, Credit Union of Texas</small></div>
+          <div class="pair">
+            <div class="line"><span class="label">Before</span><div class="track" aria-hidden="true"><div class="fill" style="--w:75%"></div></div><span class="val">75%</span></div>
+            <div class="line"><span class="label">After</span><div class="track" aria-hidden="true"><div class="fill after" style="--w:88%"></div></div><span class="val">88%</span></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="metric">Response time<small>Seconds per answer, lower is better, Credit Union of Texas</small></div>
+          <div class="pair">
+            <div class="line"><span class="label">Before</span><div class="track" aria-hidden="true"><div class="fill" style="--w:100%"></div></div><span class="val">8s</span></div>
+            <div class="line"><span class="label">After</span><div class="track" aria-hidden="true"><div class="fill after" style="--w:50%"></div></div><span class="val">4s</span></div>
+          </div>
+        </div>
+
+        <p class="foot">Hallucinations fell 43% in the same VA work.</p>
+      </div>
+    </section>
+
+    <section class="block" id="about" aria-labelledby="about-h">
+      <h2 id="about-h">Production AI, not just prototypes.</h2>
+      <p class="copy">I build enterprise LLM applications, multi-agent workflows, MCP-enabled tools, and RAG and GraphRAG pipelines. Each one comes with evaluation, guardrails and monitoring.</p>
+      <p class="copy">My backends are Python and FastAPI with CI/CD and testing. I care about grounded answers, secure tool access and AI quality I can measure.</p>
+    </section>
+
+    <section class="block" id="work" aria-labelledby="work-h">
+      <h2 id="work-h">What I have built at work</h2>
+
+      <article class="entry">
+        <div>
+          <h3>A way to measure and fix RAG answers</h3>
+          <div class="where">U.S. Department of Veterans Affairs</div>
+        </div>
+        <div>
+          <p>I raised RAG answer faithfulness from 0.57 to 0.91 on RAGAS and cut hallucinations by 43%, under federal security requirements.</p>
+          <p>I traced and evaluated runs with Langfuse and LangSmith, and added CloudWatch and Prometheus monitoring with drift alerts.</p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div>
+          <h3>A document assistant people use every day</h3>
+          <div class="where">Credit Union of Texas</div>
+        </div>
+        <div>
+          <p>A RAG and GraphRAG assistant over about 2,000 documents, built on pgvector, Pinecone, ChromaDB and reranking. 25 people across 3 teams use it for about 150 queries a day, which saves roughly 125 hours a month.</p>
+          <p>Accuracy rose from 75% to 88% and response time fell from 8 to 4 seconds. Prometheus and Grafana track it.</p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div>
+          <h3>Safe tool access for AI agents</h3>
+          <div class="where">Credit Union of Texas</div>
+        </div>
+        <div>
+          <p>FastMCP servers that 5+ applications use. They add PII and DLP guardrails, audit logging, and OAuth 2.0 with IAM least privilege.</p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div>
+          <h3>Multi-agent workflows with a person in the loop</h3>
+          <div class="where">Credit Union of Texas</div>
+        </div>
+        <div>
+          <p>LangGraph and Google ADK workflows with tool calling and human-in-the-loop approval. I gathered requirements from business teams, demoed prototypes to non-technical users, and built their feedback into production.</p>
+        </div>
+      </article>
+
+      <p class="copy fine">Details are kept general. These systems belong to my employers and are not public. The projects below are public code.</p>
+    </section>
+
+    <section class="block" id="projects" aria-labelledby="proj-h">
+      <h2 id="proj-h">Projects on GitHub</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>MCP Employee Knowledge Assistant</h3>
+          <p>An enterprise knowledge assistant built on MCP, with controlled tool access, retrieval and agent workflows.</p>
+          <p><a href="https://github.com/gireeshvuyyuru501-design/mcp-employee-knowledge-assistant">View on GitHub</a></p>
+        </article>
+        <article class="card">
+          <h3>Enterprise Finance Agent</h3>
+          <p>A multi-agent finance system covering portfolio, budget, expense, risk and reporting workflows.</p>
+          <p><a href="https://github.com/gireeshvuyyuru501-design/enterprise_finance_agent">View on GitHub</a></p>
+        </article>
+        <article class="card">
+          <h3>Enterprise LLM Chat Assistant</h3>
+          <p>A production-minded LLM application that shows reusable patterns for enterprise AI integration.</p>
+          <p><a href="https://github.com/gireeshvuyyuru501-design/enterprise-llm-chat-assistant">View on GitHub</a></p>
+        </article>
+        <article class="card">
+          <h3>AI Engineering Repositories</h3>
+          <p>More LangChain, Hugging Face, Pydantic, testing and GenAI projects.</p>
+          <p><a href="https://github.com/gireeshvuyyuru501-design?tab=repositories">Explore repositories</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="skills" aria-labelledby="skills-h">
+      <h2 id="skills-h">What I work with</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Generative and agentic AI</h3>
+          <p>LangGraph, LangChain, Google ADK, MCP and FastMCP, multi-agent systems, tool calling, prompt engineering. Models from OpenAI, Anthropic, Gemini and Bedrock.</p>
+        </article>
+        <article class="card">
+          <h3>RAG and evaluation</h3>
+          <p>RAG, GraphRAG, embeddings, hybrid retrieval, reranking, pgvector, Pinecone, ChromaDB, RAGAS, Langfuse, LangSmith, hallucination detection, guardrails.</p>
+        </article>
+        <article class="card">
+          <h3>Machine learning and backend</h3>
+          <p>Python, FastAPI, Pydantic, PyTorch, TensorFlow, scikit-learn, XGBoost, Hugging Face Transformers, SQL, PySpark.</p>
+        </article>
+        <article class="card">
+          <h3>Cloud, MLOps and monitoring</h3>
+          <p>AWS (SageMaker, Bedrock, Lambda, ECS, EKS), Azure OpenAI, Vertex AI, Docker, Kubernetes, Jenkins, GitHub Actions, MLflow, OpenTelemetry, Prometheus, Grafana. I use Claude Code daily.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="experience" aria-labelledby="exp-h">
+      <h2 id="exp-h">Where I have worked</h2>
+
+      <div class="entry">
+        <div><h3>Credit Union of Texas</h3><div class="where">December 2025 to present<br>Houston, Texas</div></div>
+        <div><p>Senior AI/ML Engineer. RAG and GraphRAG, LangGraph and Google ADK agent workflows, MCP servers, and evaluation and monitoring.</p></div>
+      </div>
+      <div class="entry">
+        <div><h3>U.S. Department of Veterans Affairs</h3><div class="where">January 2023 to November 2025<br>Washington, D.C.</div></div>
+        <div><p>ML Engineer and AI Engineer. LangChain and OpenAI RAG and agent applications, LLM evaluation, and NLP pipelines on AWS SageMaker, Lambda, ECS and EKS.</p></div>
+      </div>
+      <div class="entry">
+        <div><h3>Radixweb</h3><div class="where">June 2019 to December 2021<br>Hyderabad, India</div></div>
+        <div><p>Data Scientist, after a year as a Data Science Intern. ML models with PyTorch, TensorFlow, scikit-learn and XGBoost, served through FastAPI, tracked in MLflow and deployed on AWS SageMaker.</p></div>
+      </div>
+      <div class="entry">
+        <div><h3>Education and certifications</h3></div>
+        <div>
+          <p>M.S. Computer Science, Texas A&amp;M University-Kingsville, 2022 (4.0 GPA). B.Tech Computer Science and Engineering, Vignan's University, 2020.</p>
+          <p>Claude API Fundamentals, Agent Skills, Claude Code, MCP Advanced Topics, and the Deep Learning Specialization.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Hiring for AI/ML, GenAI or LLM engineering?</h2>
+      <p class="copy">Send me the use case. I will walk you through my RAGAS evaluation setup. I am in Houston, Texas and open to relocation anywhere in the U.S.</p>
+      <p class="actions">
+        <a class="btn main" href="mailto:girishsap45@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/girish-genai-engineer">LinkedIn</a>
+        <a class="btn" href="Girish_Vuyyuru_AI_ML_Resume.pdf">Download resume</a>
+      </p>
+      <dl class="details">
+        <div><dt>Email</dt><dd><a href="mailto:girishsap45@gmail.com">girishsap45@gmail.com</a></dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+13464348296">+1 346 434 8296</a></dd></div>
+        <div><dt>Location</dt><dd>Houston, Texas. Open to relocation anywhere in the U.S.</dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/girish-genai-engineer">linkedin.com/in/girish-genai-engineer</a></dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/gireeshvuyyuru501-design">github.com/gireeshvuyyuru501-design</a></dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Girish Vuyyuru</span>
+    <span>AI/ML and agentic AI engineering portfolio</span>
+  </footer>
 </div>
-<div class="stats">
-<div class="card stat"><b>6+ Years</b><span>Professional AI/ML engineering experience</span></div>
-<div class="card stat"><b>Agentic AI</b><span>LangGraph • LangChain • MCP</span></div>
-<div class="card stat"><b>RAG</b><span>GraphRAG • Vector Search • Evaluation</span></div>
-<div class="card stat"><b>Cloud AI</b><span>AWS • Azure • GCP</span></div>
-</div></div></header>
-
-<section id="about"><div class="wrap"><h2>Production AI, not just prototypes</h2><div class="grid">
-<div class="card"><h3>What I build</h3><p>Enterprise LLM applications, multi-agent workflows, MCP-enabled tools, RAG/GraphRAG pipelines, model evaluation, guardrails, observability and cloud-native AI services.</p></div>
-<div class="card"><h3>Engineering focus</h3><p>Python/FastAPI backends, grounded outputs, secure tool access, measurable AI quality, CI/CD, monitoring, testing, debugging and reliable production delivery.</p></div>
-</div></div></section>
-
-<section id="skills"><div class="wrap"><h2>AI Engineering Stack</h2><div class="grid">
-<div class="card"><h3>Generative AI & Agentic AI</h3><div class="chips"><span class="chip">LangGraph</span><span class="chip">LangChain</span><span class="chip">MCP</span><span class="chip">FastMCP</span><span class="chip">Multi-Agent Systems</span><span class="chip">Tool Calling</span><span class="chip">Prompt Engineering</span><span class="chip">Claude</span><span class="chip">Gemini</span><span class="chip">OpenAI</span></div></div>
-<div class="card"><h3>RAG & LLM Evaluation</h3><div class="chips"><span class="chip">RAG</span><span class="chip">GraphRAG</span><span class="chip">Embeddings</span><span class="chip">Hybrid Retrieval</span><span class="chip">Reranking</span><span class="chip">RAGAS</span><span class="chip">LangSmith</span><span class="chip">Hallucination Detection</span><span class="chip">Guardrails</span></div></div>
-<div class="card"><h3>Machine Learning & Backend</h3><div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Pydantic</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">Scikit-learn</span><span class="chip">XGBoost</span><span class="chip">SQL</span><span class="chip">PySpark</span></div></div>
-<div class="card"><h3>Cloud, MLOps & Observability</h3><div class="chips"><span class="chip">AWS Bedrock</span><span class="chip">SageMaker</span><span class="chip">Azure OpenAI</span><span class="chip">Vertex AI</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">CI/CD</span><span class="chip">MLflow</span><span class="chip">OpenTelemetry</span><span class="chip">Grafana</span><span class="chip">Prometheus</span></div></div>
-</div></div></section>
-
-<section id="experience"><div class="wrap"><h2>Experience</h2>
-<div class="card role"><div><div class="when">Dec 2025 — Present</div><h3>Senior AI/ML Engineer</h3><p>Credit Union of Texas • Houston, TX</p></div><div><ul><li>Architected production-grade Agentic AI applications using Python, LangChain and LangGraph with planning, reasoning, memory, state management and tool/function calling.</li><li>Designed multi-agent workflows using MCP/FastMCP, conditional routing, shared state and human-in-the-loop controls.</li><li>Built enterprise RAG/GraphRAG pipelines with embeddings, vector search, hybrid retrieval, metadata filtering, reranking and grounded response generation.</li><li>Implemented LLM evaluation, hallucination checks, tool-call quality, prompt-injection defenses, PII redaction, observability and CI/CD.</li></ul></div></div>
-<div class="card role"><div><div class="when">Jan 2023 — Nov 2025</div><h3>ML Engineer / AI Engineer</h3><p>U.S. Department of Veterans Affairs • Washington, D.C.</p></div><div><ul><li>Built Python Agentic AI and RAG applications using LangChain and OpenAI APIs for production use cases.</li><li>Designed end-to-end AI/ML pipelines covering ingestion, preprocessing, feature engineering, model training, evaluation and deployment on AWS SageMaker.</li><li>Deployed cloud-native AI services using Lambda, ECS, EKS, FastAPI, Docker, Jenkins and GitHub Actions.</li></ul></div></div>
-<div class="card role"><div><div class="when">Jun 2020 — Dec 2021</div><h3>Data Scientist</h3><p>Radixweb • India</p></div><div><ul><li>Developed machine-learning solutions using Python, PyTorch, TensorFlow, Keras, Scikit-learn and XGBoost.</li><li>Built FastAPI inference APIs, PySpark data workflows, MLflow lifecycle tracking and AWS SageMaker deployment pipelines.</li></ul></div></div>
-<div class="card role"><div><div class="when">Jun 2019 — Jun 2020</div><h3>Data Science Intern</h3><p>Radixweb • India</p></div><div><ul><li>Built Python data preprocessing pipelines and foundational ML models with Scikit-learn; developed NLP text processing workflows.</li><li>Performed EDA and feature engineering, containerized scripts with Docker and used Git for version control in Agile sprints.</li></ul></div></div>
-</div></section>
-
-<section id="projects"><div class="wrap"><h2>Selected Projects</h2><div class="grid">
-<div class="card"><h3>MCP Employee Knowledge Assistant</h3><p>Enterprise MCP-based knowledge assistant with controlled tool access, retrieval and agent workflows.</p><a href="https://github.com/gireeshvuyyuru501-design/mcp-employee-knowledge-assistant" target="_blank">View on GitHub →</a></div>
-<div class="card"><h3>Enterprise Finance Agent</h3><p>Multi-agent finance system spanning portfolio, budget, expense, risk and reporting workflows.</p><a href="https://github.com/gireeshvuyyuru501-design/enterprise_finance_agent" target="_blank">View on GitHub →</a></div>
-<div class="card"><h3>Enterprise LLM Chat Assistant</h3><p>Production-minded LLM application demonstrating reusable enterprise AI integration patterns.</p><a href="https://github.com/gireeshvuyyuru501-design/enterprise-llm-chat-assistant" target="_blank">View on GitHub →</a></div>
-<div class="card"><h3>AI Engineering Repositories</h3><p>Additional LangChain, Hugging Face, Pydantic, testing and GenAI engineering projects.</p><a href="https://github.com/gireeshvuyyuru501-design?tab=repositories" target="_blank">Explore repositories →</a></div>
-</div></div></section>
-
-<section id="contact"><div class="wrap"><h2>Let's build production AI</h2><div class="card"><p>Open to AI/ML Engineer, Generative AI Engineer, Agentic AI Engineer, LLM Engineer and Python AI Engineer opportunities.</p><div class="cta"><a class="btn primary" href="mailto:girishsap45@gmail.com">girishsap45@gmail.com</a><a class="btn" href="Girish_Vuyyuru_AI_ML_Resume.pdf" target="_blank">Download Resume</a></div></div></div></section>
-<footer class="footer"><div class="wrap">© 2026 Girish Vuyyuru • AI/ML & Agentic AI Engineering Portfolio</div></footer>
-</body></html>
+</body>
+</html>
