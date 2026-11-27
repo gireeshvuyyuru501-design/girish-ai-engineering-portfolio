@@ -1,11 +1,7 @@
-# Girish Vuyyuru — AI/ML & Agentic AI Portfolio
+# Girish Vuyyuru: AI/ML Engineering Portfolio
 
-Recruiter-focused GitHub Pages portfolio for AI/ML, Generative AI, Agentic AI, RAG and LLM Engineering roles.
+Senior AI/ML engineer. RAG and GraphRAG, LangGraph agents, MCP and FastAPI, evaluated with RAGAS.
 
-## Publish with GitHub Pages
-1. Create a repository named `girish-ai-engineering-portfolio`.
-2. Upload all files in this folder to the repository root.
-3. Open Settings → Pages.
-4. Deploy from `main` branch / root.
-5. Your live link will be:
-   `https://gireeshvuyyuru501-design.github.io/girish-ai-engineering-portfolio/`
+**Live site:** https://gireeshvuyyuru501-design.github.io/girish-ai-engineering-portfolio/
+
+[Resume](Girish_Vuyyuru_AI_ML_Resume.pdf) · [LinkedIn](https://www.linkedin.com/in/girish-genai-engineer/) · [GitHub](https://github.com/gireeshvuyyuru501-design)
