@@ -76,20 +76,34 @@ footer{padding:36px 0 50px;color:var(--muted);font-size:.88rem;text-align:center
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s} .js .rv.on{opacity:1;transform:none}
 @media(max-width:920px){.hero{grid-template-columns:1fr;padding-top:46px}.stats{grid-template-columns:1fr 1fr}.flow,.grid3{grid-template-columns:1fr}.job ul{columns:1}}
 @media(max-width:620px){.grid2{grid-template-columns:1fr}.wrap{padding:0 16px}nav{position:static}.stat{padding:16px}}
+.vhero{position:relative;min-height:calc(100svh - 58px);display:flex;align-items:center;overflow:hidden}
+.vhero .hero{position:relative;z-index:2;width:100%}
+.vhero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;opacity:0;pointer-events:none;transition:opacity .8s}
+.vhero.has video{opacity:1} .shade{display:none}
+.vhero.has .shade{display:block;position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,6,15,.92),rgba(5,6,15,.7) 32%,transparent 52%),linear-gradient(0deg,var(--bg),transparent 14%)}
+.vhero.has .hero{grid-template-columns:minmax(0,44%) 1fr} .vhero.has .term{display:none}
+.vhero.has h1{font-size:clamp(2.6rem,5.6vw,4.8rem)}
+button.btn{font:600 1rem Inter,sans-serif;cursor:pointer} [hidden]{display:none!important}
+.about p+p{margin-top:14px} .dim{color:var(--muted)}
+@media(max-width:920px){.vhero{display:block;min-height:0}.vhero.has video{position:static;display:block;height:auto;aspect-ratio:4/3;max-height:60svh}.vhero:not(.has) video{height:0}.vhero.has .shade{display:none}.vhero.has .hero{grid-template-columns:1fr;padding-top:24px}}
+@media(max-width:920px){.vhero .hero{padding-top:36px;padding-bottom:36px}}
 @media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}html{scroll-behavior:auto}.term p,.js .rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <div class="glow" aria-hidden="true"><i></i><i></i><i></i></div>
-<nav><div class="wrap"><b><span class="g">GV</span> · AI Engineering</b><div><a href="#how">How I build</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
-<main class="wrap">
-<div class="hero">
- <div>
+<nav><div class="wrap"><b><span class="g">GV</span> · AI Engineering</b><div><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
+<main>
+<header class="vhero" id="home">
+ <video id="vid" muted loop autoplay playsinline preload="auto" aria-label="Video introduction from Girish Vuyyuru"><source src="webvideo.mp4" type="video/mp4"></video>
+ <div class="shade" aria-hidden="true"></div>
+ <div class="wrap hero">
+ <div class="intro">
   <span class="pill">Open to Full-time · W2 · C2C roles</span>
   <h1>Girish<br><span class="g">Vuyyuru</span></h1>
   <p class="role">Senior AI/ML Engineer building RAG systems and AI agents in Python.</p>
   <p class="lede">Two questions guide my work: is the answer right, and who is allowed to see the data behind it? I build with LangGraph, MCP and FastAPI, and evaluate with RAGAS.</p>
-  <div class="btns"><a class="btn main" href="mailto:girishvuyuru@gmail.com?subject=AI%20Engineer%20role">Hire me</a><a class="btn" href="Girish_Vuyyuru_AI_ML_Resume.pdf">Resume</a><a class="btn" href="https://www.linkedin.com/in/girish-genai-engineer/">LinkedIn</a><a class="btn" href="https://github.com/gireeshvuyyuru501-design">GitHub</a></div>
+  <div class="btns"><a class="btn main" href="#projects">View portfolio</a><a class="btn" href="#contact">Contact me</a><a class="btn" href="Girish_Vuyyuru_AI_ML_Resume.pdf">Resume</a><button class="btn" id="sound" type="button" hidden>▶ Play intro with sound</button></div>
  </div>
  <div class="term" role="img" aria-label="Illustration of an agent run: retrieve, rerank, generate, evaluate, human review"><header><i></i><i></i><i></i></header><div>
   <p style="--d:1"><s>$</s> agent.run(<em>"policy question"</em>)</p>
@@ -101,7 +115,9 @@ footer{padding:36px 0 50px;color:var(--muted);font-size:.88rem;text-align:center
   <p style="--d:7"><em>review</em>&nbsp; sensitive action → <u>human</u></p>
   <p style="--d:8"><s># illustrative flow</s></p>
  </div></div>
-</div>
+ </div>
+</header>
+<div class="wrap">
 <div class="stats">
  <div class="stat rv"><strong class="g">75→88%</strong><span>Answer accuracy</span></div>
  <div class="stat rv"><strong class="g">8s→4s</strong><span>Response time</span></div>
@@ -109,14 +125,26 @@ footer{padding:36px 0 50px;color:var(--muted);font-size:.88rem;text-align:center
  <div class="stat rv"><strong class="g">6+ yrs</strong><span>Data science, ML and Python backend</span></div>
 </div>
 <p class="note">Accuracy, speed and time-saved results are from my current work at Credit Union of Texas. Employer code is private; the projects below are my own public code.</p>
+<section id="about"><p class="kicker">About me</p><h2>I build AI that can show its work</h2><div class="card rv about"><p>I build and evaluate generative and agentic AI systems in Python: RAG and GraphRAG pipelines, LangGraph agents, FastMCP tools and FastAPI services.</p><p>I started as a data scientist at Radixweb, finished my M.S. in Computer Science at Texas A&amp;M University-Kingsville, built Python backends at PepsiCo, then forecasting and ML services at Smart &amp; Final before moving into generative AI.</p></div></section>
+<section id="services"><p class="kicker">What I do</p><h2>Services</h2><div class="grid3"><article class="card rv"><h3>RAG &amp; GraphRAG systems</h3><p class="dim">Ingestion, embeddings, hybrid retrieval, reranking and grounded answers.</p></article><article class="card rv"><h3>AI agents</h3><p class="dim">LangGraph workflows with tool calling, checkpoints and human review.</p></article><article class="card rv"><h3>MCP integrations</h3><p class="dim">FastMCP tools that connect agents to approved APIs and data.</p></article><article class="card rv"><h3>LLM evaluation</h3><p class="dim">RAGAS evaluation sets and regression checks for prompts, retrieval and models.</p></article><article class="card rv"><h3>AI backends</h3><p class="dim">FastAPI services with async processing, retries and monitoring.</p></article><article class="card rv"><h3>Data safety</h3><p class="dim">PII masking, permission-aware retrieval and audit logging.</p></article></div></section>
 <section id="how"><p class="kicker">How I build</p><h2>From question to trusted answer</h2><ol class="flow"><li class="rv" style="--i:0"><b>01</b><h3>Retrieve</h3><p>Hybrid search finds candidate passages, limited by what the user may see.</p></li><li class="rv" style="--i:1"><b>02</b><h3>Rerank</h3><p>The most relevant passages move to the top.</p></li><li class="rv" style="--i:2"><b>03</b><h3>Generate</h3><p>The model answers from the retrieved text.</p></li><li class="rv" style="--i:3"><b>04</b><h3>Evaluate</h3><p>RAGAS sets and regression checks compare each change.</p></li><li class="rv" style="--i:4"><b>05</b><h3>Review</h3><p>Sensitive agent actions wait for a person.</p></li></ol></section>
 <section id="projects"><p class="kicker">Public code</p><h2>Projects</h2><div class="grid3"><a class="card proj rv" href="https://github.com/gireeshvuyyuru501-design/enterprise-employee-knowledge-assistant"><h3>MCP Employee Knowledge Assistant</h3><p>Employee knowledge assistant using MCP, FastAPI, PostgreSQL and Claude Desktop.</p><div class="chips"><span>MCP</span><span>FastAPI</span><span>PostgreSQL</span></div><span class="go">View code →</span></a><a class="card proj rv" href="https://github.com/gireeshvuyyuru501-design/enterprise-finance-agent"><h3>Enterprise Finance Agent</h3><p>Multi-agent project with supervisor orchestration for portfolio, budget, expense and risk analysis.</p><div class="chips"><span>Python</span><span>FastAPI</span><span>Docker</span><span>Tests</span></div><span class="go">View code →</span></a><a class="card proj rv" href="https://github.com/gireeshvuyyuru501-design/enterprise-llm-chat-assistant"><h3>Enterprise LLM Chat Assistant</h3><p>Conversational assistant with LangChain, FastAPI and prompt engineering.</p><div class="chips"><span>LangChain</span><span>FastAPI</span><span>Prompting</span></div><span class="go">View code →</span></a></div></section>
 <section id="experience"><p class="kicker">Career</p><h2>Experience</h2><div class="time"><article class="job rv"><p class="when">Apr 2025 – Present</p><h3>Senior AI/ML Engineer / Generative AI Engineer</h3><p class="org">Credit Union of Texas (client, through InfoDat) · Texas</p><ul><li>Built RAG and GraphRAG pipelines with hybrid retrieval and reranking</li><li>Built LangGraph agents with FastMCP tools and human review checkpoints</li><li>Measured quality with RAGAS evaluation sets and regression checks</li><li>Added PII masking, permission-aware retrieval and audit logging</li><li>Built async FastAPI workflows with retries and job-status tracking</li><li>Monitored services with Prometheus and Grafana</li></ul></article><article class="job rv"><p class="when">Mar 2024 – Mar 2025</p><h3>Machine Learning Engineer</h3><p class="org">Smart &amp; Final · Los Angeles, CA</p><ul><li>Built Python ML for retail demand forecasting, inventory optimization and customer analytics</li><li>Deployed inference services with FastAPI and Flask REST APIs</li><li>Connected forecasts to inventory analytics for replenishment and stock risk</li><li>Prepared sales, inventory and transaction data with Python and SQL</li></ul></article><article class="job rv"><p class="when">Jan 2023 – Feb 2024</p><h3>Machine Learning Developer</h3><p class="org">PepsiCo · Plano, TX</p><ul><li>Developed Python backend services and REST APIs for data-integration workflows</li><li>Automated recurring extraction and reporting with Python and SQL</li><li>Built reusable data processing and validation components</li></ul></article><article class="job rv"><p class="when">Jun 2019 – Dec 2021</p><h3>Data Scientist</h3><p class="org">Radixweb · Ahmedabad, India</p><ul><li>Built predictive models, compared baselines and evaluated prediction quality</li><li>Performed exploratory analysis, cleaning and feature engineering with Python and SQL</li><li>Delivered reusable scripts, visualizations and reports</li></ul></article></div></section>
 <section id="skills"><p class="kicker">Toolkit</p><h2>Skills</h2><div class="grid2"><article class="card rv"><h3>Agents</h3><div class="chips"><span>LangGraph</span><span>LangChain</span><span>LlamaIndex</span><span>Google ADK</span><span>MCP</span><span>FastMCP</span><span>CrewAI</span><span>AutoGen</span><span>Claude Agent SDK</span><span>Tool calling</span></div></article><article class="card rv"><h3>RAG &amp; evaluation</h3><div class="chips"><span>RAG</span><span>GraphRAG</span><span>Hybrid retrieval</span><span>Reranking</span><span>pgvector</span><span>Pinecone</span><span>ChromaDB</span><span>FAISS</span><span>RAGAS</span><span>Langfuse</span><span>LangSmith</span></div></article><article class="card rv"><h3>Models &amp; ML</h3><div class="chips"><span>OpenAI</span><span>Azure OpenAI</span><span>AWS Bedrock</span><span>Gemini on Vertex AI</span><span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>XGBoost</span><span>Hugging Face</span></div></article><article class="card rv"><h3>Backend &amp; cloud</h3><div class="chips"><span>Python</span><span>SQL</span><span>FastAPI</span><span>Flask</span><span>Pydantic</span><span>AWS</span><span>Azure</span><span>GCP</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span><span>GitHub Actions</span><span>Prometheus</span><span>Grafana</span></div></article></div></section>
 <section id="education"><p class="kicker">Background</p><h2>Education</h2><div class="grid2"><article class="card rv"><h3>M.S. Computer Science</h3><p>Texas A&amp;M University-Kingsville · 2022</p></article><article class="card rv"><h3>B.Tech Computer Science &amp; Engineering</h3><p>Vignan's University · 2015 – 2019</p></article></div></section>
 <div class="cta rv" id="contact"><h2>Hiring for AI, GenAI or agent roles?</h2><p>Tell me what you're building. I'm in Missouri City, Texas, near Houston.</p><div class="btns"><a class="btn main" href="mailto:girishvuyuru@gmail.com?subject=AI%20Engineer%20role">Email me</a><a class="btn" href="https://www.linkedin.com/in/girish-genai-engineer/">Message on LinkedIn</a><a class="btn" href="Girish_Vuyyuru_AI_ML_Resume.pdf">Download resume</a></div><small>girishvuyuru@gmail.com · <a href="tel:+13464348296">+1 346 434 8296</a></small></div>
+</div>
 </main>
 <footer>© 2026 Girish Vuyyuru</footer>
+<script>
+(()=>{const v=document.getElementById('vid'),h=document.getElementById('home'),b=document.getElementById('sound'),calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(calm){v.autoplay=false;v.pause()}
+const ready=()=>{h.classList.add('has');b.hidden=false};
+v.addEventListener('loadeddata',ready); if(v.readyState>=2)ready();
+b.addEventListener('click',()=>{if(v.muted){v.muted=false;v.loop=false;v.currentTime=0;v.play();b.textContent='🔇 Mute intro'}else{v.muted=true;v.loop=true;v.play();b.textContent='▶ Play intro with sound'}});
+v.addEventListener('ended',()=>{v.muted=true;v.loop=true;v.play();b.textContent='▶ Play intro with sound'});
+})();
+</script>
 <script>
 if('IntersectionObserver' in window){document.documentElement.classList.add('js');const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');o.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.rv').forEach(e=>o.observe(e))}
 </script>
